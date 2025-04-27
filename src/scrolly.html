@@ -1,0 +1,178 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />	
+
+	<style>
+		/* 1) make the overall section tall enough */
+		#scrolly {
+			position: relative;
+			padding: 1rem;
+		}
+	  
+		/* 2) stick the graphic in place */
+		.sticky-thing {
+			position: -webkit-sticky;
+			position: sticky;
+			left: 0;
+			width: 100%;
+			margin: 0;
+			z-index: -1;
+			top: 0;
+			height: 100vh;
+
+            transform: scale(0.95) translateY(3%);
+
+			/* Center everything inside */
+			display: flex;
+			justify-content: center;
+			flex-direction: column;
+			justify-content: center;
+		}
+	  
+		/* 3) space out each step */
+		.scrolly-overlay {
+			position: relative;
+			padding: 0;
+			max-width: 28rem;
+			margin: 0 auto;
+			z-index:1;
+		}
+
+		.step {
+			margin: 0 auto 2rem auto;
+			margin-bottom: 25rem;
+			background-color: #fff;
+			color: black;
+		}
+		
+		.step p {
+			text-align: left;
+			padding: 1rem;
+			font-family: Georgia, serif;
+			font-size: 1rem;
+			text-align: center;
+		}
+
+		.hidden { 
+			opacity: 0 !important; pointer-events: none; 
+		}
+
+		.spacer_margin {
+			margin-bottom: 0 !important;
+		}
+
+		.transparent {
+			color: transparent;
+			background-color: transparent;
+		}
+
+		/* make sure transforms won’t jump until you add the “-transform” class */
+		.g-minor-paint,
+		.g-minor-unsanitary,
+		.g-minor-plumbing {
+			transition: transform 1s ease, opacity 0.4s ease;
+			transform: translate(0, 0); /* default in‑place */
+		}
+
+		/* offscreen / stacked but invisible until we remove .hidden */
+		.paint-transform { transform: translate(-20px, -100px); }
+		.unsanitary-transform { transform: translate(20px, -100px); }
+		.plumbing-transform { transform: translate(0px, -100px); }
+
+		.fade_out {
+			opacity: 0;                        /* animate toward fully transparent */
+			visibility: visible;              
+			transition: 
+				opacity 1s ease,              /* fade opacity out */
+				visibility 0s 1s;             /* set visibility hidden, but only after 1.5s */
+		}
+
+		.bold {
+			font-weight: bold;
+		}
+
+	  </style>
+
+  </head>
+<body>
+  <section id="scrolly">
+	<div class="sticky-thing">
+	  <div class="ai2html-container">
+
+        <include src="circles-scroll.html"></include>
+
+</div>
+</div>
+
+<div class="scrolly-overlay">
+
+	<!-- STEP 0: show all major categories -->
+	<div class="step" id="step-zero">
+	  <p>503 W. 122nd St. has a total of 624 Housing Preservation and Development violations and complaints, according to city data collected from 2001 to 2025. Only 192 of the violations remain open by the city today. The rest were closed, despite residents saying the issues persist. 
+	</p>
+	</div>
+
+	<!-- STEP 1: show only the top 3 -->
+	<div class="step" id="step-one">
+		<p class = "bold">These are some of their complaints. 
+	  </p>
+	  </div>
+  
+	<!-- unsanitary conditions -->
+	<div class="step" id="step-two">
+	  <p>“We’ve had black mold citations from the city for over three years now. The city's never done anything to follow through.”
+	</p>
+	</div>
+  
+	<div class="step" id="step-three">
+	  <p>“Under my 10 year old's bed, one month she had a hole to the dirt, and when the guy came to fix it, they didn't put cement down. They put wood on top of dirt.”
+	</p>
+	</div>
+
+	<div class="step" id="step-four">
+		<p>“I have doctors letters from me getting bit by spiders”
+		</p>
+	</div>
+	
+	<div class="step" id="step-five">
+		<p>“She had rats come to her kitchen, where they literally ate through cans of Spaghettios.”  
+		</p>
+	</div>
+
+	<!-- paint/plaster -->
+	<div class="step" id="step-six">
+		<p>“We have a step that’s getting ready to collapse through and I showed the guy from the city and he wrote it off and closed the case.”  
+		</p>
+	</div>
+
+	<!-- plumbing -->
+	<div class="step" id="step-seven">
+		<p>“We did not have hot water in the building for the whole weekend.”
+		</p>
+	</div>
+
+	
+	<!-- hidden ones -->
+	<div class="step" id="spacer">
+		<p> </p>
+	</div>
+	<div class="step" id="spacer">
+		<p> </p>
+	</div>
+	<div class="step" id="spacer">
+		<p> </p>
+	</div>
+  
+  </div>  
+
+</section>
+
+<script src="https://unpkg.com/intersection-observer@0.5.1/intersection-observer.js"></script>
+    <script src="https://unpkg.com/scrollama"></script>
+    <script src="https://d3js.org/d3.v4.min.js" charset="utf-8"></script>
+    <script src="./scripts/ai2html-resizer.js"></script>
+	<script src="./scripts/scrollyscript.js"></script>
+	
+</body>
+</html>
