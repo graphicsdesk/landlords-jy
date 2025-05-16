@@ -120,7 +120,7 @@ b {
     background-color: rgba(0, 0, 0, 0.6);
     max-width: 700px;
     color: #fff;
-    transform: translateY(-160%); // TODO: do better;
+    transform: translateY(-140%); // TODO: do better;
     align-items: center;
 
     p,
@@ -142,24 +142,31 @@ b {
   }
 }
 
+@media (max-width: 800px) {
+  .cover-hed header {
+    margin-top: 50%;
+    transform: translateY(-225%);
+  }  
+}
+
 @media (max-width: 500px) {
   .cover-hed header {
     margin-top: 50%;
-    transform: translateY(-190%);
+    transform: translateY(-140%);
   }  
 }
 
 @media (max-width: 400px) {
   .cover-hed header {
     margin-top: 50%;
-    transform: translateY(-170%);
+    transform: translateY(-133%);
   }  
 }
 
 @media (max-width: 330px) {
   .cover-hed header {
     margin-top: 50%;
-    transform: translateY(-170%);
+    transform: translateY(-120%);
   }  
 }
 
